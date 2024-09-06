@@ -3,15 +3,16 @@ import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import theme from "./theme";
-import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store.ts";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ShoppingList } from "./features/shoppingList/components/ShoppingList/ShoppingList.tsx";
+import { Header } from "./components/Header/Header.tsx";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <App />,
+		element: <ShoppingList />,
 	},
 ]);
 
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")!).render(
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Provider store={store}>
+				<Header />
 				<RouterProvider router={router} />
 			</Provider>
 		</ThemeProvider>

@@ -26,13 +26,16 @@ const theme = createTheme({
 	},
 	palette: {
 		primary: {
-			main: "#556cd6",
+			main: "#4D81B7",
 		},
 		secondary: {
 			main: "#19857b",
 		},
 		error: {
 			main: red.A400,
+		},
+		text: {
+			secondary: "#ffffff",
 		},
 	},
 });
