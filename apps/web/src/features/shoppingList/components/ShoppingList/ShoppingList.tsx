@@ -1,6 +1,7 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useGetItemsQuery } from "../../services/item";
 import { EmptyList } from "../EmptyList";
+import { CircularProgress } from "../../../../components/CircularProgress";
 
 export function ShoppingList() {
 	const { data: items, isLoading } = useGetItemsQuery();
@@ -15,9 +16,7 @@ export function ShoppingList() {
 
 	return (
 		<Box>
-			{items.map((item) => (
-				<Typography variant="body1">{item.id}</Typography>
-			))}
+			{items?.map((item) => <Typography variant="body1">{item.id}</Typography>)}
 		</Box>
 	);
 }
