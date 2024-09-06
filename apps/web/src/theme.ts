@@ -12,6 +12,8 @@ const theme = createTheme({
 		},
 		h2: {
 			fontFamily: "Dosis, sans-serif",
+			fontSize: 18,
+			lineHeight: "24px",
 		},
 		h3: {
 			fontFamily: "Dosis, sans-serif",
@@ -26,6 +28,10 @@ const theme = createTheme({
 		body1: {
 			fontSize: 18,
 			color: "#87898C",
+		},
+		body2: {
+			fontSize: 14,
+			color: "#7D7A7A",
 		},
 	},
 	palette: {
@@ -49,6 +55,13 @@ const theme = createTheme({
 				containedPrimary: {
 					backgroundColor: "#1871E8",
 					textTransform: "none",
+				},
+			},
+		},
+		MuiCheckbox: {
+			styleOverrides: {
+				root: {
+					color: "#C6C6C6",
 				},
 			},
 		},

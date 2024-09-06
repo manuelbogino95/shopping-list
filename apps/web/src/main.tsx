@@ -21,10 +21,18 @@ createRoot(document.getElementById("root")!).render(
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Provider store={store}>
-				<Header />
-				<main style={{ padding: 2 }}>
-					<RouterProvider router={router} />
-				</main>
+				<div
+					style={{
+						minHeight: "100vh",
+						display: "flex",
+						flexDirection: "column",
+					}}
+				>
+					<Header />
+					<main style={{ padding: 40, flex: 1 }}>
+						<RouterProvider router={router} />
+					</main>
+				</div>
 			</Provider>
 		</ThemeProvider>
 	</StrictMode>
