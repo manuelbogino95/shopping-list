@@ -17,6 +17,7 @@ const theme = createTheme({
 		},
 		h3: {
 			fontFamily: "Dosis, sans-serif",
+			fontSize: 18,
 		},
 		h4: {
 			fontFamily: "Dosis, sans-serif",
@@ -41,6 +42,7 @@ const theme = createTheme({
 		},
 		secondary: {
 			main: "#19857b",
+			dark: "#D5DFE9",
 		},
 		error: {
 			main: red.A400,

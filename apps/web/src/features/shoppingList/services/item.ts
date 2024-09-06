@@ -7,6 +7,16 @@ export const itemApi = createApi({
 	baseQuery: fetchBaseQuery({ baseUrl: appConfig.apiUrl }),
 	tagTypes: [ItemApiTag.Items],
 	endpoints: (builder) => ({
+		createItem: builder.mutation<Item, Partial<Item>>({
+			query(item) {
+				return {
+					url: `/item`,
+					body: item,
+					method: "POST",
+				};
+			},
+			invalidatesTags: [ItemApiTag.Items],
+		}),
 		getItems: builder.query<Item[], void>({
 			query: () => "item",
 			providesTags: [ItemApiTag.Items],
@@ -34,6 +44,7 @@ export const itemApi = createApi({
 });
 
 export const {
+	useCreateItemMutation,
 	useGetItemsQuery,
 	useDeleteRoadmapItemMutation,
 	useUpdateItemMutation,

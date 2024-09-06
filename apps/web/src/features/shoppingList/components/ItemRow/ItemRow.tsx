@@ -8,13 +8,14 @@ const ITEM_GAP = 12;
 
 interface ItemRowDataProps {
 	items: Item[];
-	onDelete: (id: number) => void;
+	onDeleteClick: (id: number) => void;
+	onUpdateClick: (id: number) => void;
 	onUpdate: (item: Item) => void;
 }
 
 export function ItemRow(props: ListChildComponentProps<ItemRowDataProps>) {
 	const { index, style, data } = props;
-	const { items, onDelete, onUpdate } = data;
+	const { items, onDeleteClick, onUpdate, onUpdateClick } = data;
 	const item = items[index];
 
 	function handlePurshasedChange(e: ChangeEvent<HTMLInputElement>) {
@@ -45,10 +46,10 @@ export function ItemRow(props: ListChildComponentProps<ItemRowDataProps>) {
 				</Stack>
 			</Stack>
 			<Stack direction="row" gap={1}>
-				<IconButton size="small">
+				<IconButton size="small" onClick={() => onUpdateClick(item.id)}>
 					<Icon>edit_outlined</Icon>
 				</IconButton>
-				<IconButton size="small" onClick={() => onDelete(item.id)}>
+				<IconButton size="small" onClick={() => onDeleteClick(item.id)}>
 					<Icon>delete_outlined</Icon>
 				</IconButton>
 			</Stack>
