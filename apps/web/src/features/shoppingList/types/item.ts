@@ -5,3 +5,7 @@ export interface Item {
 	quantity: number;
 	purchased: boolean;
 }
+
+export enum ItemApiTag {
+	Items = "Items",
+}

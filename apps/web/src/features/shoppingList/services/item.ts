@@ -1,15 +1,40 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Item } from "../types/item";
+import { Item, ItemApiTag } from "../types/item";
 import { appConfig } from "../../../config";
 
 export const itemApi = createApi({
 	reducerPath: "itemApi",
 	baseQuery: fetchBaseQuery({ baseUrl: appConfig.apiUrl }),
+	tagTypes: [ItemApiTag.Items],
 	endpoints: (builder) => ({
 		getItems: builder.query<Item[], void>({
 			query: () => "item",
+			providesTags: [ItemApiTag.Items],
+		}),
+		deleteRoadmapItem: builder.mutation<Item, number>({
+			query(id: number) {
+				return {
+					url: `/item/${id}`,
+					method: "DELETE",
+				};
+			},
+			invalidatesTags: [ItemApiTag.Items],
+		}),
+		updateItem: builder.mutation<Item, Partial<Item>>({
+			query({ id, ...rest }) {
+				return {
+					url: `/item/${id}`,
+					body: rest,
+					method: "PATCH",
+				};
+			},
+			invalidatesTags: [ItemApiTag.Items],
 		}),
 	}),
 });
 
-export const { useGetItemsQuery } = itemApi;
+export const {
+	useGetItemsQuery,
+	useDeleteRoadmapItemMutation,
+	useUpdateItemMutation,
+} = itemApi;
