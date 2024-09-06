@@ -14,6 +14,6 @@ export class Item {
   @Column()
   quantity: number;
 
-  @Column()
+  @Column({ default: false })
   purchased: boolean;
 }
