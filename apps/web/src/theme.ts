@@ -23,6 +23,10 @@ const theme = createTheme({
 			fontFamily: "Dosis, sans-serif",
 		},
 		fontFamily: "Nunito, sans-serif",
+		body1: {
+			fontSize: 18,
+			color: "#87898C",
+		},
 	},
 	palette: {
 		primary: {
@@ -36,6 +40,17 @@ const theme = createTheme({
 		},
 		text: {
 			secondary: "#ffffff",
+		},
+		divider: "#C6C6C6",
+	},
+	components: {
+		MuiButton: {
+			styleOverrides: {
+				containedPrimary: {
+					backgroundColor: "#1871E8",
+					textTransform: "none",
+				},
+			},
 		},
 	},
 });

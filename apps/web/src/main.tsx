@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import { Provider } from "react-redux";
 import { store } from "./store.ts";
@@ -22,7 +22,9 @@ createRoot(document.getElementById("root")!).render(
 			<CssBaseline />
 			<Provider store={store}>
 				<Header />
-				<RouterProvider router={router} />
+				<Box sx={{ padding: 2 }}>
+					<RouterProvider router={router} />
+				</Box>
 			</Provider>
 		</ThemeProvider>
 	</StrictMode>
